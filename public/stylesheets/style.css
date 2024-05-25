@@ -1,8 +1,75 @@
+html {
+  height: 100%;
+  max-width: 100vw;
+}
 body {
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: white;
+}
+.header {
+  text-align: center;
+}
+.message {
+  text-align: center;
+  background-color: aliceblue;
+  width: 300px;
+  border: 1px solid beige;
+  border-radius: 16px;
+}
+main {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: #00b7ff;
+  width: 100%;
+  padding-top: 200px;
+  overflow-y: auto;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 400px;
+  height: 200px;
+  font-size: 20px;
+}
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #00b7ff;
+  font-size: 16px;
+}
+button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #00b7ff;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: black;
+  transition: color 0.3s, background-color 0.3s;
+}
+button:hover {
+  transition: color 0.3s, background-color 0.3s;
+  background-color: #00b7ff;
+  color: white;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

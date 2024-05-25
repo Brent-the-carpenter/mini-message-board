@@ -2,10 +2,25 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header class="header">
+      <h1><%= title %></h1>
+      <p>Welcome to my <%= title %></p>
+    </header>
+    <main>
+      <a href="./new-message">Send messages</a>
+      <ul>
+        <% message.forEach((message)=> { %>
+        <div class="message">
+          <h4>From: <%= message.user %></h4>
+          <span>Sent: <%=message.added.toLocaleString() %></span>
+
+          <p><%= message.text %></p>
+        </div>
+        <% }) %>
+      </ul>
+    </main>
   </body>
 </html>
