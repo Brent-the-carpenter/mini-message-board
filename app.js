@@ -5,9 +5,16 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const { router } = require("./routes/index");
 const messageRouter = require("./routes/new-message");
-
+const rateLimit = require("express-rate-limit");
 const app = express();
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 50,
+  message: "Too many request from this IP, please try again after 15 min",
+});
+
+app.use(limiter);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
