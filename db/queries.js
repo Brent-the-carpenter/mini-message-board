@@ -3,7 +3,7 @@ const pool = require("./pool");
 async function getAllMessages() {
   try {
     const result = await pool.query(
-      `SELECT * FROM messages 
+      `SELECT messages.id AS message_id , messages.author_id , messages.message , messages.posted_at , users.id AS user_id , users.user_name FROM messages 
       LEFT JOIN users ON messages.author_id = users.id`
     );
     return result.rows;
@@ -46,7 +46,7 @@ async function DELETEMessage(id) {
     const result = await pool.query(`DELETE FROM messages WHERE id = $1`, [id]);
     if (result.rowCount === 0) {
       console.log("No message found with the given ID.");
-      return { success: false, message: `Error deleting message.`, error };
+      return { success: false, message: `Error deleting message.` };
     }
     return { success: true, message: `Message deleted successfully.` };
   } catch (error) {

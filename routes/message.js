@@ -11,7 +11,7 @@ router.get("/", GET_new_message_form);
 
 /*DELETE message */
 
-router.get("/delete/:id", DELETE_message);
+router.post("/delete/:id", DELETE_message);
 
 /* Post message request */
 

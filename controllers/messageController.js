@@ -8,6 +8,7 @@ const GET_all_messages = asyncHandler(async (req, res, next) => {
   messages.forEach((message) => {
     message.posted_at = formatDate(message.posted_at);
   });
+  console.log(messages);
   return res.render("index", {
     title,
     messages,
@@ -29,6 +30,7 @@ const POST_message = asyncHandler(async (req, res, next) => {
 
 const DELETE_message = asyncHandler(async (req, res, next) => {
   const messageId = req.params.id;
+  console.log(messageId);
   await db.DELETEMessage(messageId);
   res.redirect("/");
 });
