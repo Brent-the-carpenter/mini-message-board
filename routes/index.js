@@ -1,21 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const asyncHandler = require("express-async-handler");
+const msgController = require("../controllers/messageController");
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
 /* GET home page. */
-router.get("/", (req, res, next) => {
-  res.render("index", { title: "Mini Message Board", message: messages });
-});
+router.get("/", msgController.GET_all_messages);
 
-module.exports = { router, messages };
+module.exports = router;

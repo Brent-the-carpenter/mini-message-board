@@ -10,16 +10,20 @@
       <p>Welcome to my <%= title %></p>
     </header>
     <main>
-      <a href="./new-message">Send messages</a>
+      <a href="/new">Send messages</a>
       <ul>
-        <% message.forEach((message)=> { %>
-        <div class="message">
-          <h4>From: <%= message.user %></h4>
-          <span>Sent: <%=message.added.toLocaleString() %></span>
+        <% if (messages.length) {%> <% messages.forEach((message) => { %>
 
-          <p><%= message.text %></p>
-        </div>
-        <% }) %>
+        <li>
+          <div class="message">
+            <h1><%= message.user_name %></h1>
+            <br />
+            <div><%= message.posted_at %></div>
+            <p><%= message.message %></p>
+          </div>
+        </li>
+
+        <%})%> <%}%>
       </ul>
     </main>
   </body>

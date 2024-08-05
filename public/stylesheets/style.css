@@ -19,6 +19,11 @@ a {
 .header {
   text-align: center;
 }
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
 .message {
   text-align: center;
   background-color: aliceblue;
